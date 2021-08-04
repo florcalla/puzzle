@@ -12,7 +12,7 @@ function App() {
   return (
     <Router> 
     <div className="inicio"> 
-      <Route exact path ="/"   component = {Modo}/>
+      <Route  path ="/"   exact component = {Modo}/>
       <Route  path="/normal"  component = {Juego}/>
       <Route  path="/dificil"  component = {Juego}/>
     </div>
