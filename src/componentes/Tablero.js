@@ -26,21 +26,7 @@ const Tablero = ({modo , normal}) =>{
 
 
 
-    useEffect( () => {
-        const  getDatos = async () => {
-            await getCats(modo)
-            .then(
-                (result) => {
-                    setIsloaded(true);
-                    setData({...data, gatos: result});
-                },
-                (error) => {
-                    setIsloaded(true);
-                    setError(error)
-                }
-            )  
-        }  
-              
+    useEffect( () => {              
         getDatos();
       },[]);
 
@@ -55,7 +41,21 @@ const Tablero = ({modo , normal}) =>{
       useEffect( () => {
         verificarUltimoMovimiento();
       }, [totalCartas]);
-
+    
+    const  getDatos = async () => {
+        setIsloaded(false);
+        await getCats(modo)
+        .then(
+            (result) => {
+                setIsloaded(true);
+                setData({...data, gatos: result});
+            },
+            (error) => {
+                setIsloaded(true);
+                setError(error)
+            }
+        )  
+    } 
     const verificarPrimermovimiento = () => {
         if(primeraCarta.id && !primerMovimiento) {
             setPrimerMovimiento(true);
@@ -132,6 +132,7 @@ if(error) {
                 movimientos = {movimientos}
                 iniciar = {primerMovimiento}
                 parar = {final}
+                reiniciar = {getDatos}
                 >
 
                 </Nav>

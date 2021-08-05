@@ -1,6 +1,6 @@
 import { useState , useRef, useEffect} from "react";
 import '../styles/style.css'
-const Nav = ({movimientos , iniciar , parar }) => {
+const Nav = ({movimientos , iniciar , parar , reiniciar}) => {
     const [timer, setTimer] = useState(0);
     const countRef = useRef(null)
 
@@ -26,7 +26,7 @@ const Nav = ({movimientos , iniciar , parar }) => {
     }
 
     const nuevoJuego = () => {
-        window.location.reload(false);
+        reiniciar();
     }
     return(
         <div className="nav"> 
