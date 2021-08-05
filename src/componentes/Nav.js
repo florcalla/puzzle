@@ -26,7 +26,7 @@ const Nav = ({movimientos , iniciar , parar }) => {
     }
 
     const nuevoJuego = () => {
-        window.location.reload();
+        window.location.reload(false);
     }
     return(
         <div className="nav"> 
