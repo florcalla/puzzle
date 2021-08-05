@@ -10,7 +10,7 @@ import Juego from './componentes/Juego';
 function App() {
 
   return (
-    <Router> 
+    <Router basename={process.env.PUBLIC_URL} > 
     <div className="inicio"> 
       <Route  path ="/"   exact component = {Modo}/>
       <Route  path="/normal"  component = {Juego}/>
