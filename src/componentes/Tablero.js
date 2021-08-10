@@ -43,7 +43,7 @@ const Tablero = ({modo , normal}) =>{
       }, [totalCartas]);
     
     const  getDatos = async () => {
-        setIsloaded(false);
+        newGame();
         await getCats(modo)
         .then(
             (result) => {
@@ -107,6 +107,21 @@ const Tablero = ({modo , normal}) =>{
     const resetCards = () => {
         setSegundaCarta({});
         setPrimeraCarta({});
+    }
+    const newGame = () => {
+        setError(null);
+        setIsloaded(false);
+        setData({gatos : []});
+        setPrimerMovimiento(false);
+        setMovimientos(0);
+        setTotalCartas([]);
+        setFinal(false);
+    
+        setPrimeraCarta({});
+        setSegundaCarta({});
+    
+        setDesabilitarPar([]);
+        setVoltearPar([]);   
     }
 if(error) {
     return <div> Error : {error.message}</div>

@@ -6,6 +6,7 @@ function Cub({ carta , permitirVuelta , index , desabilitarPar , voltearPar}) {
     const url = carta.url;
     const [flip, setFlip] = useState(false);
     const [desabilitar , setDesabilitar] = useState(true);
+    
 
     useEffect(() => {
       if(voltearPar.includes(index)){
@@ -20,7 +21,7 @@ function Cub({ carta , permitirVuelta , index , desabilitarPar , voltearPar}) {
     },[desabilitarPar]);
     
 
-    const flipCard = () => {    
+    const flipCard = () => {   
       const valor = permitirVuelta(index, carta.id)
       if(valor === 1) {
         setFlip(!flip)
