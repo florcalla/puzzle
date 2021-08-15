@@ -12,8 +12,16 @@ function App() {
     <Router basename={process.env.PUBLIC_URL} > 
     <div className="inicio"> 
       <Route  path ="/"   exact component = {Modo}/>
-      <Route  path="/normal"  component = {Juego}/>
-      <Route  path="/dificil"  component = {Juego}/>
+      <Route  
+        path="/normal"  
+        render = {(props) =>  (
+          <Juego {...props } rows = {8} isnormal = {true}/>
+        )}/>
+      <Route  
+        path="/dificil"  
+        render = {(props) =>  (
+          <Juego {...props } rows = {18} isnormal = {false}/>
+        )}/>
     </div>
   </Router>
   );
